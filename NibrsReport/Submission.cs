@@ -7,7 +7,6 @@ using System.Xml.Serialization;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using NibrsModels.Constants;
-using System.Configuration;
 using Newtonsoft.Json;
 using NibrsModels.NibrsReport.Misc;
 using Util.Extensions;
@@ -37,20 +36,9 @@ namespace NibrsModels.NibrsReport
 
         [XmlElement("Report")] public List<Report> Reports = new List<Report>();
 
-        [XmlAttribute("schemaLocation", Namespace = XmlSchema.InstanceNamespace)]
+        [XmlAttribute("schemaLocation", Namespace =Namespaces.xsi)]
         //[JsonIgnore]
         public string XsiSchemaLocation = Constants.Misc.schemaLocation;
-
-
-        [XmlIgnore]
-        public string Incident_Num { get; set; }
-
-
-        [XmlIgnore]
-        public string IncidentDateTime { get; }
-
-
-
 
         public Submission()
         {
@@ -58,12 +46,9 @@ namespace NibrsModels.NibrsReport
         }
 
 
-        public Submission(string incident_Num, string incident_Date, string runnumber, string environment)
+        public Submission(string runnumber, string environment)
         {
 
-            Incident_Num = incident_Num;
-            // TODO: Fix formatting below
-            IncidentDateTime = incident_Date;
             Runnumber = runnumber;
             Environment = environment;
         }
@@ -139,32 +124,18 @@ namespace NibrsModels.NibrsReport
 
         /// Note: Below Helper Properties don't intend or useful for Ucr Reports.
 
-        // This property helps us to create the Report Id in the Transaction wrapper.
+       
         [XmlIgnore]
         public string ReportingCategory => Reports[0].Header.NibrsReportCategoryCode;
 
-        // This property helps us to create the Report Id in the Transaction wrapper.
+       
         [XmlIgnore]
         public string Ori => Reports[0].Header.ReportingAgency.OrgAugmentation.OrgOriId.Id;
 
 
        
-        /// The main motive of creating this property is to easily identify the report and perform actions based on the Report Action Type, 
-        /// it also helps to create MongoIndex  to scan the documents.
         [XmlIgnore]
-        [BsonElement]
-        public string ReportId
-        {
-            get
-            {
-                return _reportId;
-            }
-           
-        }
-
-        [XmlIgnore]
-        private string _reportId => Ori + "_" + Incident_Num + "_" + ReportingCategory;
-
+        public string IncidentNumber => Reports[0].Incident?.ActivityId.Id;
 
         #endregion
 
@@ -196,8 +167,11 @@ namespace NibrsModels.NibrsReport
                 throw new Exception("There was an error deserializing a submission: " + fileInfo.Name , e);
             }
 
-            // Close the file and return
-            xmlFile.Close();
+            xmlFile.Flush();
+
+            xmlFile.Dispose();
+
+
             return sub;
         }
 
@@ -261,6 +235,9 @@ namespace NibrsModels.NibrsReport
         //     return submission;
         //
         // }
+
+
+
 
        
     }
