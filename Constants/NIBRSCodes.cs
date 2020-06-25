@@ -40,7 +40,7 @@ namespace NibrsModels.Constants
     /// A data type for a code that identifies the type of bias that motivated the offense, if any. Includes all NIBRS codes, plus additional codes
     /// </summary>
     [Description("A data type for a code that identifies the type of bias that motivated the offense, if any. Includes all NIBRS codes, plus additional codes.")]
-    internal enum BiasMotivationCode
+    public enum BiasMotivationCode
     {
         /// <summary>
         /// Anti-American Indian or Alaskan Native_race ethnicity bias
@@ -320,7 +320,7 @@ namespace NibrsModels.Constants
     /// A data type for a code that identifies gang involvement of offenders in an offense
     /// </summary>
     [Description("A data type for a code that identifies gang involvement of offenders in an offense.")]
-    internal enum GangInvolvementCategoryCode
+    public enum GangInvolvementCategoryCode
     {
         /// <summary>
         /// Other Gang
@@ -348,7 +348,7 @@ namespace NibrsModels.Constants
     /// A data type for a code that identifies the current disposition of the incident
     /// </summary>
     [Description("A data type for a code that identifies the current disposition of the incident.")]
-    internal enum IncidentStatusCode
+    public enum IncidentStatusCode
     {
         /// <summary>
         /// Active
@@ -432,7 +432,7 @@ namespace NibrsModels.Constants
     /// A data type for a code that identifies the disposition of the arrest if the arrestee was a juvenile at the time of arrest
     /// </summary>
     [Description("A data type for a code that identifies the disposition of the arrest if the arrestee was a juvenile at the time of arrest.")]
-    internal enum JuvenileDispositionCode
+    public enum JuvenileDispositionCode
     {
         /// <summary>
         /// Referred to Criminal (Adult) Court
@@ -879,7 +879,7 @@ namespace NibrsModels.Constants
     /// A data type for kinds of arrests that can occur
     /// </summary>
     [Description("A data type for kinds of arrests that can occur.")]
-    internal enum ArrestCategoryCode
+    public enum ArrestCategoryCode
     {
         /// <summary>
         /// On-View Arrest
@@ -1005,7 +1005,7 @@ namespace NibrsModels.Constants
     /// A data type for kinds of drugs
     /// </summary>
     [Description("A data type for kinds of drugs.")]
-    internal enum DrugCategoryCode
+    public enum DrugCategoryCode
     {
         /// <summary>
         /// crack cocaine
@@ -1138,7 +1138,7 @@ namespace NibrsModels.Constants
     /// A data type for the kinds of measurements used to specify a quantity of drugs or narcotics
     /// </summary>
     [Description("A data type for the kinds of measurements used to specify a quantity of drugs or narcotics.")]
-    internal enum DrugMeasurementCode
+    public enum DrugMeasurementCode
     {
         /// <summary>
         /// Dosage Units/ Items
@@ -1411,7 +1411,7 @@ namespace NibrsModels.Constants
     /// A data type for ways in which an incident may be cleared exceptionally
     /// </summary>
     [Description("A data type for ways in which an incident may be cleared exceptionally.")]
-    internal enum IncidentExceptionalClearanceCode
+    public enum IncidentExceptionalClearanceCode
     {
         /// <summary>
         /// Death of Offender
@@ -1460,7 +1460,7 @@ namespace NibrsModels.Constants
     /// A data type for factors that may have been involved in or contributed to a subject committing an offense
     /// </summary>
     [Description("A data type for factors that may have been involved in or contributed to a subject committing an offense.")]
-    internal enum IncidentFactorCode
+    public enum IncidentFactorCode
     {
         /// <summary>
         /// Alcohol
@@ -1505,11 +1505,11 @@ namespace NibrsModels.Constants
         BROKEN_BONES,
 
         /// <summary>
-        /// possible internal injury
+        /// possible public injury
         /// </summary>
         [NibrsCode("I")]
-        [CodeDescription("possible internal injury")]
-        INTERNAL_INJURY,
+        [CodeDescription("possible public injury")]
+        public_INJURY,
 
         /// <summary>
         /// severe laceration
@@ -1558,7 +1558,7 @@ namespace NibrsModels.Constants
     /// A data type for circumstances of a justifiable homicide
     /// </summary>
     [Description("A data type for circumstances of a justifiable homicide.")]
-    internal enum JustifiableHomicideFactorsCode
+    public enum JustifiableHomicideFactorsCode
     {
         /// <summary>
         /// Criminal Attacked Police Officer and That Officer Killed Criminal
@@ -1614,7 +1614,7 @@ namespace NibrsModels.Constants
     /// A data type for a kind of activity or circumstance in which a law enforcement officer was engaged at the time of assault
     /// </summary>
     [Description("A data type for a kind of activity or circumstance in which a law enforcement officer was engaged at the time of assault.")]
-    internal enum LEOKAActivityCategoryCode
+    public enum LEOKAActivityCategoryCode
     {
         /// <summary>
         /// Responding to Disturbance Call (Family Quarrels, Person with Firearm, Etc)
@@ -1698,7 +1698,7 @@ namespace NibrsModels.Constants
     /// A data type for an assignment a law enforcement officer was on when assaulted
     /// </summary>
     [Description("A data type for an assignment a law enforcement officer was on when assaulted.")]
-    internal enum LEOKAOfficerAssignmentCategoryCode
+    public enum LEOKAOfficerAssignmentCategoryCode
     {
         /// <summary>
         /// Two-Officer Vehicle - uniformed law enforcement officers
@@ -1754,7 +1754,7 @@ namespace NibrsModels.Constants
     /// A data type for methods of entry into a structure or premises
     /// </summary>
     [Description("A data type for methods of entry into a structure or premises.")]
-    internal enum MethodOfEntryCode
+    public enum MethodOfEntryCode
     {
         /// <summary>
         /// Force
@@ -1775,7 +1775,7 @@ namespace NibrsModels.Constants
     /// A data type for the ways in which an arrested subject is counted or scored in a system so that a subject is counted only once despite potentially multiple arrests at a time
     /// </summary>
     [Description("A data type for the ways in which an arrested subject is counted or scored in a system so that a subject is counted only once despite potentially multiple arrests at a time.")]
-    internal enum MultipleArresteeSegmentsCode
+    public enum MultipleArresteeSegmentsCode
     {
 
         /// <summary>
@@ -2287,7 +2287,7 @@ namespace NibrsModels.Constants
     /// A data type for whether or not a person was a resident of a town, city, or community in relation to some activity
     /// </summary>
     [Description("A data type for whether or not a person was a resident of a town, city, or community in relation to some activity.")]
-    internal enum ResidentCode
+    public enum ResidentCode
     {
         /// <summary>
         /// Nonresident
@@ -2315,7 +2315,7 @@ namespace NibrsModels.Constants
     /// A data type for kinds of victims in an incident
     /// </summary>
     [Description("A data type for kinds of victims in an incident.")]
-    internal enum VictimCategoryCode
+    public enum VictimCategoryCode
     {
         /// <summary>
         /// Business
@@ -2385,7 +2385,7 @@ namespace NibrsModels.Constants
     /// A data type for units of time
     /// </summary>
     [Description("A data type for units of time.")]
-    internal enum TimeCode
+    public enum TimeCode
     {
         /// <summary>
         /// year
@@ -2476,7 +2476,7 @@ namespace NibrsModels.Constants
     /// A data type for a code that identifies the status of property.  Expands the NIBRS PropertyLoss code list
     /// </summary>
     [Description("A data type for a code that identifies the status of property.  Expands the NIBRS PropertyLoss code list.")]
-    internal enum ItemStatusCode
+    public enum ItemStatusCode
     {
         /// <summary>
         /// None
@@ -2805,7 +2805,7 @@ namespace NibrsModels.Constants
 	 /// A data type for a kind of action to be taken on the report
 	/// </summary>
 	[Description("A data type for a kind of action to be taken on the report")]
-	internal enum ReportActionCategoryCode
+	public enum ReportActionCategoryCode
 	{
 		/// <summary>
 		/// Incident Report
@@ -2826,7 +2826,7 @@ namespace NibrsModels.Constants
 	 /// A data type for a code that identifies additional information on criminal activity of offenders in the offense.
 	/// </summary>
     [Description("A data type for a code that identifies additional information on criminal activity of offenders in the offense.")]
-	internal enum CriminalActivityCategoryCode
+	public enum CriminalActivityCategoryCode
     {
         /// <summary>
         /// Simple/Gross Neglect
@@ -3302,7 +3302,7 @@ namespace NibrsModels.Constants
 	 /// A data type for the NIBRS code for an age of a person
 	/// </summary>
 	[Description("A data type for the NIBRS code for an age of a person")]
-	internal enum PersonAgeCode
+	public enum PersonAgeCode
 	{
 		/// <summary>
 		/// Under 24 Hours

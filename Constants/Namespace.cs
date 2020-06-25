@@ -17,7 +17,7 @@
     /// <summary>
     /// A listing of XML namespaces that will be used for generating NIBRSXML reports
     /// </summary>
-    internal class Namespaces
+    public class Namespaces
     {
         /// <summary>
         /// "http://fbi.gov/cjis/nibrs/4.2"
@@ -103,7 +103,7 @@
     /// A listing of aliases to use for referencing XML namespaces when generating NIBRSXML reports
     /// Each string constant contains a string of its variable name. Underscores in variable names represent hyphens in its contained string.
     /// </summary>
-    internal class Aliases
+    public class Aliases
     {
         /// <summary>
         /// "nibrs"

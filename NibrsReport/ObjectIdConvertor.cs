@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NibrsModels.NibrsReport
 {
-    class ObjectIdConverter : JsonConverter
+  public  class ObjectIdConverter : JsonConverter
     {
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
