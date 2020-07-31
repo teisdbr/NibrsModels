@@ -33,7 +33,7 @@ namespace NibrsModels.NibrsReport.Misc
             DateTime = date + "T" + time;
         }
 
-        [BsonIgnore][XmlIgnore][JsonIgnore]
+        [XmlIgnore][JsonIgnore]
         public DateTime RealDateTime
         {
             get { return _realDateTime; }
