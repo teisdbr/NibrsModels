@@ -33,19 +33,7 @@ namespace NibrsModels.NibrsReport.Misc
             DateTime = date + "T" + time;
         }
 
-        [XmlIgnore][JsonIgnore]
-        public DateTime RealDateTime
-        {
-            get { return _realDateTime; }
-            set
-            {
-                _realDateTime = value;
-
-                if (!string.IsNullOrWhiteSpace(DateTime)) DateTime = value.ToString("yyyy-MM-ddThh:mm:ss");
-
-                if (!string.IsNullOrWhiteSpace(Date)) Date = value.ToString("yyyy-MM-dd");
-            }
-        }
+      
 
         [XmlElement("DateTime", Namespace = Namespaces.niemCore)]
         public string DateTime
@@ -60,6 +48,24 @@ namespace NibrsModels.NibrsReport.Misc
                 System.DateTime.TryParse(value, out _realDateTime);
             }
         }
+
+
+        [XmlIgnore]
+        [JsonIgnore]
+        public DateTime RealDateTime
+        {
+            get { return _realDateTime; }
+            set
+            {
+                _realDateTime = value;
+
+                if (!string.IsNullOrWhiteSpace(DateTime)) DateTime = value.ToString("yyyy-MM-ddThh:mm:ss");
+
+                if (!string.IsNullOrWhiteSpace(Date)) Date = value.ToString("yyyy-MM-dd");
+            }
+        }
+
+
 
         [XmlElement("Date", Namespace = Namespaces.niemCore)]
         public string Date
