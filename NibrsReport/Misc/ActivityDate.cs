@@ -17,7 +17,7 @@ namespace NibrsModels.NibrsReport.Misc
 
         private string _dateTime;
 
-        private DateTime _realDateTime;
+        private DateTime? _realDateTime;
 
         public ActivityDate()
         {
@@ -45,23 +45,23 @@ namespace NibrsModels.NibrsReport.Misc
                     _date = null;
                 _dateTime = value;
 
-                System.DateTime.TryParse(value, out _realDateTime);
+                _realDateTime = System.DateTime.TryParse(value, out var dateTimeTemp) ? dateTimeTemp : (DateTime?)null;
             }
         }
 
 
         [XmlIgnore]
         [JsonIgnore]
-        public DateTime RealDateTime
+        public DateTime? RealDateTime
         {
             get { return _realDateTime; }
             set
             {
                 _realDateTime = value;
 
-                if (!string.IsNullOrWhiteSpace(DateTime)) DateTime = value.ToString("yyyy-MM-ddThh:mm:ss");
+                if (!string.IsNullOrWhiteSpace(DateTime)) DateTime = value?.ToString("yyyy-MM-ddThh:mm:ss");
 
-                if (!string.IsNullOrWhiteSpace(Date)) Date = value.ToString("yyyy-MM-dd");
+                if (!string.IsNullOrWhiteSpace(Date)) Date = value?.ToString("yyyy-MM-dd");
             }
         }
 
@@ -74,7 +74,7 @@ namespace NibrsModels.NibrsReport.Misc
             {
                 if (_date != null)
                     return _date;
-                return DateTime == null ? _dateTime.Substring(0, _dateTime.IndexOf("T")) : null;
+                return DateTime == null ? _dateTime?.Substring(0, _dateTime.IndexOf("T")) : null;
             }
             set
             {
@@ -82,7 +82,7 @@ namespace NibrsModels.NibrsReport.Misc
                     _dateTime = null;
                 _date = value;
 
-                System.DateTime.TryParse(value, out _realDateTime);
+                _realDateTime =  System.DateTime.TryParse(value, out var dateTimeTemp) ? dateTimeTemp : (DateTime?)null; 
             }
         }
 

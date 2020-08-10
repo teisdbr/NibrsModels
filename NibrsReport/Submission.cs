@@ -126,15 +126,17 @@ namespace NibrsModels.NibrsReport
 
        
         [XmlIgnore]
+        [BsonElement]
         public string ReportingCategory => Reports[0].Header.NibrsReportCategoryCode;
 
        
         [XmlIgnore]
+        [BsonElement]
         public string Ori => Reports[0].Header.ReportingAgency.OrgAugmentation.OrgOriId.Id;
 
 
        
-        [XmlIgnore]
+        [XmlIgnore] [BsonElement]
         public string IncidentNumber => Reports[0].Incident?.ActivityId.Id;
 
         #endregion
