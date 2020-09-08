@@ -96,15 +96,13 @@ namespace NibrsModels.NibrsReport
         {
             get
             {
-                if (this.Reports[0].IsNibrsReportable)
-                {
-                    if(Environment == "P")
+               
+                    if(Environment == "C")
                     {
-                        return false;
+                        return true;
                     }
-                }
 
-                return this.Reports[0].IsNibrsReportable;
+                    return false;
 
              }
         }
