@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 using MongoDB.Bson.Serialization.Attributes;
 using NibrsModels.Constants;
 using Newtonsoft.Json;
-using Util.Extensions;
+using TeUtil.Extensions;
 
 namespace NibrsModels.NibrsReport.Offense
 {
