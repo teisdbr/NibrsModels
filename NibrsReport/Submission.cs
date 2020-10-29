@@ -18,7 +18,7 @@ namespace NibrsModels.NibrsReport
     ///     NibrsSerializer to print them accordingly. This also gives full freedom for NibrsReportBuilder to build reports
     ///     however it sees fit.
     /// </summary>
-
+    [BsonIgnoreExtraElements]
     [XmlRoot("Submission", Namespace = Namespaces.cjisNibrs)]
     public class Submission : INibrsSerializable
     {

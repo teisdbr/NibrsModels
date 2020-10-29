@@ -11,6 +11,7 @@ using Util.Extensions;
 
 namespace NibrsModels.NibrsReport
 {
+    [BsonIgnoreExtraElements]
     [XmlRoot("Report", Namespace = Namespaces.cjisNibrs)]
     public class Report : INibrsSerializable
     {
