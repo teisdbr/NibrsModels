@@ -70,7 +70,7 @@ namespace NibrsModels.NibrsReport.Misc
             {
                 _realDateTime = value;
 
-                if (!string.IsNullOrWhiteSpace(DateTime)) DateTime = value?.ToString("yyyy-MM-ddThh:mm:ss");
+                if (!string.IsNullOrWhiteSpace(DateTime)) DateTime = value?.ToString("yyyy-MM-ddTHH:mm:ss");
 
                 if (!string.IsNullOrWhiteSpace(Date)) Date = value?.ToString("yyyy-MM-dd");
             }
