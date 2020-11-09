@@ -45,13 +45,24 @@ namespace NibrsModels.NibrsReport.Misc
                     _date = null;
                 _dateTime = value;
 
-                _realDateTime = System.DateTime.TryParse(value, out var dateTimeTemp) ? dateTimeTemp : (DateTime?)null;
+
+
+                if (_realDateTime == null)
+                {
+                    _realDateTime = System.DateTime.TryParse(value, out var dateTimeTemp) ? dateTimeTemp : (DateTime?)null;
+                    if (_realDateTime != null)
+                    {
+                        // set the datetime value  in UTC 
+                        _realDateTime = Convert.ToDateTime(TimeZoneInfo.ConvertTimeToUtc((DateTime)_realDateTime));
+                    }
+                }  
             }
         }
 
 
         [XmlIgnore]
         [JsonIgnore]
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
         public DateTime? RealDateTime
         {
             get { return _realDateTime; }
@@ -82,7 +93,16 @@ namespace NibrsModels.NibrsReport.Misc
                     _dateTime = null;
                 _date = value;
 
-                _realDateTime =  System.DateTime.TryParse(value, out var dateTimeTemp) ? dateTimeTemp : (DateTime?)null; 
+                if (_realDateTime == null)
+                {
+                    _realDateTime = System.DateTime.TryParse(value, out var dateTimeTemp) ? dateTimeTemp : (DateTime?)null;
+                    if (_realDateTime != null)
+                    {
+                        // set the datetime value  in UTC 
+                        _realDateTime = Convert.ToDateTime(TimeZoneInfo.ConvertTimeToUtc((DateTime)_realDateTime));
+                    }
+                }
+               
             }
         }
 

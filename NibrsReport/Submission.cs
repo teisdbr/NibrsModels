@@ -87,8 +87,10 @@ namespace NibrsModels.NibrsReport
         private ObjectId _id;
 
 
+        [BsonElement]
         [XmlIgnore] public string Runnumber { get; set; }
 
+        [BsonElement]
         [XmlIgnore] public string Environment { get; set; }
 
         [BsonElement]
