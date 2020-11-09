@@ -61,8 +61,8 @@ namespace NibrsModels.NibrsReport.Misc
 
 
         [XmlIgnore]
-        [JsonIgnore]
-        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
+        [JsonIgnore] // stored in Mongo, so we can ignore JSON  as it will be computed  from either DateTime or Date when deserialized  from MongoDb.
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)] // get the value always in local time zone , tho it is stored in UTC format in MongoDb.
         public DateTime? RealDateTime
         {
             get { return _realDateTime; }
@@ -70,7 +70,7 @@ namespace NibrsModels.NibrsReport.Misc
             {
                 _realDateTime = value;
 
-                if (!string.IsNullOrWhiteSpace(DateTime)) DateTime = value?.ToString("yyyy-MM-ddTHH:mm:ss");
+                if (!string.IsNullOrWhiteSpace(DateTime)) DateTime = value?.ToString("yyyy-MM-ddTHH:mm:ss"); // store in 24 hour format
 
                 if (!string.IsNullOrWhiteSpace(Date)) Date = value?.ToString("yyyy-MM-dd");
             }
