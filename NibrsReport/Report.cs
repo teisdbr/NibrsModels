@@ -251,8 +251,8 @@ namespace NibrsModels.NibrsReport
             }
             foreach (var subject in Subjects)
             {
-                subject.Person = Persons.First(p => p.Id == subject.Role.PersonId);
-                subject.Person.PersonType = "Offender";
+                subject.Person = Persons.FirstOrDefault(p => p.Id == subject.Role?.PersonId);
+                if(subject.Person !=null ) subject.Person.PersonType = "Offender";
             }
             foreach (var victim in personVictims)
             {

@@ -10,7 +10,7 @@
         <Authors>Technology Engineers</Authors>
         <Copyright>Copyright 2020</Copyright>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageVersion>1.1.7</PackageVersion>
+        <PackageVersion>1.1.8</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
