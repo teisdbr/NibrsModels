@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
@@ -8,6 +9,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using NibrsModels.Constants;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using NibrsModels.NibrsReport.Misc;
 using TeUtil.Extensions;
 
@@ -177,6 +179,53 @@ namespace NibrsModels.NibrsReport
             return sub;
         }
 
-     
+        [JsonIgnore]
+        [BsonIgnore]
+        public string JsonString
+        {
+            get
+            {
+                JsonConvert.DefaultSettings = () => new JsonSerializerSettings
+                {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                    NullValueHandling = NullValueHandling.Ignore,
+                    ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
+                };
+
+                return JsonConvert.SerializeObject(this);
+            }
+        }
+
+        public static Submission DeserializeJson(string filepath)
+        {
+            var jsonFile = new FileStream(filepath, FileMode.Open);
+            var streamReader = new StreamReader(jsonFile, new UTF8Encoding());
+            try
+            {
+                JsonConvert.DefaultSettings = () => new JsonSerializerSettings
+                {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                    NullValueHandling = NullValueHandling.Ignore,
+                    ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
+                };
+                string json = streamReader.ReadToEnd();
+                var submission = JsonConvert.DeserializeObject<Submission>(json);
+
+                return submission;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                streamReader.Dispose();
+                jsonFile.Close();
+            }
+
+        }
+
+
     }
 }

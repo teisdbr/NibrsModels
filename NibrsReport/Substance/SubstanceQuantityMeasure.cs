@@ -14,7 +14,7 @@ namespace NibrsModels.NibrsReport.Substance
         {
             // Convert strin to decimal value to match with NIBRS extraction spec 
 
-            DecimalValue = decimal.Parse(decimalValue).ToString();
+            DecimalValue = decimalValue != null ?  decimal.Parse(decimalValue).ToString() : null ;
                         
             SubstanceUnitCode = substanceUnitCode;
         }
