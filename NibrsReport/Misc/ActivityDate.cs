@@ -52,6 +52,13 @@ namespace NibrsModels.NibrsReport.Misc
                     _realDateTime = System.DateTime.TryParse(value, out var dateTimeTemp) ? dateTimeTemp : (DateTime?)null;
                     if (_realDateTime != null)
                     {
+                      
+                        TimeZoneInfo tzf = TimeZoneInfo.Local;
+                        if (tzf.IsInvalidTime((DateTime)_realDateTime))
+                        {
+                            // if time is invalid due to daylight saving. adjust the time
+                            _realDateTime = _realDateTime.Value.AddHours(1);
+                        }
                         // set the datetime value  in UTC 
                         _realDateTime = Convert.ToDateTime(TimeZoneInfo.ConvertTimeToUtc((DateTime)_realDateTime));
                     }
