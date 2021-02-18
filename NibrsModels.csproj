@@ -10,11 +10,7 @@
         <Authors>Technology Engineers</Authors>
         <Copyright>Copyright 2020</Copyright>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-<<<<<<< HEAD
-        <PackageVersion>1.2.1</PackageVersion>
-=======
         <PackageVersion>1.2.2</PackageVersion>
->>>>>>> Added ObjectType Class for Items
     </PropertyGroup>
 
     <ItemGroup>
