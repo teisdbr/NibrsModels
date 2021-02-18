@@ -12,9 +12,9 @@ namespace NibrsModels.NibrsReport.Substance
 
         public SubstanceQuantityMeasure(string decimalValue, string substanceUnitCode)
         {
-            // Convert strin to decimal value to match with NIBRS extraction spec 
+            // Convert string to decimal value to match with NIBRS extraction spec 
 
-            DecimalValue = decimalValue != null ?  decimal.Parse(decimalValue).ToString() : null ;
+            DecimalValue = decimalValue != null ?  decimal.TryParse(decimalValue, out decimal result) ? result.ToString() : null : null ;
                         
             SubstanceUnitCode = substanceUnitCode;
         }
