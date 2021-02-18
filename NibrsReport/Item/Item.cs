@@ -6,7 +6,7 @@ using NibrsModels.Utility;
 namespace NibrsModels.NibrsReport.Item
 {
     [XmlRoot("Item", Namespace = Namespaces.niemCore)]
-    public class Item : IComparable
+    public class Item : ObjectType, IComparable
     {
         [XmlElement("ItemStatus", Namespace = Namespaces.niemCore, Order = 1)]
         public ItemStatus Status { get; set; }
@@ -19,18 +19,21 @@ namespace NibrsModels.NibrsReport.Item
 
         [XmlElement("ItemQuantity", Namespace = Namespaces.niemCore, Order = 4)]
         public string Quantity { get; set; }
+        
+        
 
         public Item() { }
 
-        public Item(ItemStatus status, ItemValue value, string nibrsPropertyCategoryCode, int quantity)
+        public Item(ItemStatus status, ItemValue value, string nibrsPropertyCategoryCode, int quantity, string id = null)
         {
             this.Status = status;
             this.Value = value;
             this.NibrsPropertyCategoryCode = nibrsPropertyCategoryCode;
             this.Quantity = quantity.ToString();
+            this.Id = id;
         }
 
-        public Item(string statusCode, string valueAmount, string valueDate, string nibrsPropCategCode, string quantity)
+        public Item(string statusCode, string valueAmount, string valueDate, string nibrsPropCategCode, string quantity, string id = null)
         {
             this.Status = new ItemStatus(statusCode);
             if ((valueAmount != null || valueDate != null))
@@ -40,6 +43,7 @@ namespace NibrsModels.NibrsReport.Item
             // Ignore quntity if ItemStatusCode is not Stolen or Recovered
             if (statusCode == ItemStatusCode.STOLEN.NibrsCode() || statusCode == ItemStatusCode.RECOVERED.NibrsCode())
             this.Quantity = quantity;
+            this.Id = id;
         }
 
         public int CompareTo(object b)
