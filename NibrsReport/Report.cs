@@ -130,6 +130,17 @@ namespace NibrsModels.NibrsReport
                     i.Status.Code == ItemStatusCode.STOLEN.NibrsCode()).ToList();
             }
         }
+        
+        [BsonIgnore] [XmlIgnore] [JsonIgnore]
+        public List<Item.Item> RecoveredVehicles
+        {
+            get
+            {
+                return Items.Where(i =>
+                    i.NibrsPropertyCategoryCode.MatchOne(NibrsCodeGroups.VehicleProperties) &&
+                    i.Status.Code == ItemStatusCode.RECOVERED.NibrsCode()).ToList();
+            }
+        }
 
         [BsonIgnore] [XmlIgnore] [JsonIgnore]
         public string Xml
