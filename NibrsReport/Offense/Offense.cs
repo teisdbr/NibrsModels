@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using MongoDB.Bson.Serialization.Attributes;
 using NibrsModels.Constants;
@@ -8,7 +9,7 @@ using TeUtil.Extensions;
 namespace NibrsModels.NibrsReport.Offense
 {
     [XmlRoot("Offense", Namespace = Namespaces.justice)]
-    public class Offense
+    public class Offense: ObjectType
     {
         public Offense()
         {
@@ -42,7 +43,7 @@ namespace NibrsModels.NibrsReport.Offense
         }
 
         [XmlAttribute("id", Namespace = Namespaces.niemStructs)]
-        public string Id { get; set; }
+        public override string Id { get; set; }
 
         /// <summary>
         ///     This property is public only For serialization.
@@ -85,5 +86,8 @@ namespace NibrsModels.NibrsReport.Offense
         }
 
         [XmlIgnore] public Location.Location Location { get; set; }
+        
+        [XmlIgnore]
+        public string OffenseSequenceNumber => Regex.Match(Id, @"\d+").Value;
     }
 }

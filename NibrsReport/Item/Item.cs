@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using NibrsModels.Constants;
 using NibrsModels.Utility;
@@ -20,7 +21,8 @@ namespace NibrsModels.NibrsReport.Item
         [XmlElement("ItemQuantity", Namespace = Namespaces.niemCore, Order = 4)]
         public string Quantity { get; set; }
         
-        
+        [XmlIgnore]
+        public string ItemSequenceNumber => Regex.Match(Id, @"\d+").Value;
 
         public Item() { }
 
