@@ -24,7 +24,7 @@ namespace NibrsModels.NibrsReport.Person
             string personType,
             PersonAugmentation augmentation)
         {
-            Id = id;
+            Id = nameof(Person) + personType +  id;
             AgeMeasure = ageMeasure;
             EthnicityCode = ethnicityCode == null ? null : ethnicityCode.TrimNullIfEmpty();
             RaceCode = raceCode == null ? null : raceCode.TrimNullIfEmpty();

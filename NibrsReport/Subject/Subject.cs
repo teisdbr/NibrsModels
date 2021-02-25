@@ -26,14 +26,9 @@ namespace NibrsModels.NibrsReport.Subject
             Person = person;
             if(Person != null)
             Role = new RoleOfPerson(Person.Id);
-            this.SeqNum = seqNum.Substring(1);
+            this.SeqNum = seqNum;
             this.Id = uniquePrefix + "Subject" + int.Parse(seqNum);
         }
-
-
-       
-
-
         [XmlIgnore] public Person.Person Person { get; set; }
 
         [XmlAttribute("id", Namespace = Namespaces.niemStructs)]
