@@ -16,6 +16,12 @@ namespace NibrsModels.NibrsReport.Location
         {
             LocationRef = locationRef;
         }
+        
+        public Location(string categoryCode, int id)
+        {
+            Id = nameof(Location) + id;
+            CategoryCode = categoryCode;
+        }
 
         public Location(string categoryCode, string id)
         {
