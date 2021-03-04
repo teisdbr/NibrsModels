@@ -23,6 +23,8 @@ namespace NibrsModels.NibrsReport
 
         public Report()
         {
+            // Initialize Header
+            Header = new ReportHeader.ReportHeader();
             //Initialize Locations
             Locations = new List<Location.Location>();
 
