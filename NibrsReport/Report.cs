@@ -25,6 +25,10 @@ namespace NibrsModels.NibrsReport
         {
             // Initialize Header
             Header = new ReportHeader.ReportHeader();
+            //Initialize incident
+            Incident = new Incident.Incident();
+            //Initialize offenses
+            Offenses = new List<Offense.Offense>();
             //Initialize Locations
             Locations = new List<Location.Location>();
 
