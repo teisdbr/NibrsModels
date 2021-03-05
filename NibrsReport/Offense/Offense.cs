@@ -88,6 +88,6 @@ namespace NibrsModels.NibrsReport.Offense
         [XmlIgnore] public Location.Location Location { get; set; }
         
         [XmlIgnore]
-        public string OffenseSequenceNumber => Regex.Match(Id, @"\d+").Value;
+        public string OffenseSequenceNumber => Id != null ? Regex.Match(Id, @"\d+").Value : Id;
     }
 }
