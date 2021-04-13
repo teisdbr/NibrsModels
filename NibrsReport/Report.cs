@@ -286,14 +286,14 @@ namespace NibrsModels.NibrsReport
 
             foreach (var assoc in OffenseLocationAssocs)
             {
-                assoc.RelatedOffense = Offenses.First(o => o.Id == assoc.OffenseRef.OffenseRef);
+                assoc.RelatedOffense = Offenses.First(o => o.Id == assoc.OffenseRef.Ref);
                 assoc.RelatedLocation = Locations.First(l => l.Id == assoc.LocationRef.LocationRef);
                 assoc.RelatedOffense.Location = assoc.RelatedLocation;
             }
 
             foreach (var assoc in OffenseVictimAssocs)
             {
-                assoc.RelatedOffense = Offenses.First(o => o.Id == assoc.OffenseRef.OffenseRef);
+                assoc.RelatedOffense = Offenses.First(o => o.Id == assoc.OffenseRef.Ref);
                 // Association doesnt make any sense 
                 //assoc.RelatedVictim = personVictims.FirstOrDefault(v => v.Role.PersonId == assoc.VictimRef.VictimRef);
                 assoc.RelatedVictim = Victims.First(v => v.Id == assoc.VictimRef.VictimRef);

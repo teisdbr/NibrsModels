@@ -15,9 +15,9 @@ namespace NibrsModels.NibrsReport.Offense
         {
         }
 
-        public Offense(string offenseId)
+        public Offense(string id)
         {
-            OffenseRef = offenseId;
+            Ref = id;
         }
 
         public Offense(
@@ -50,7 +50,7 @@ namespace NibrsModels.NibrsReport.Offense
         ///     It should only be set by using the Offense(string) constructor and accessed using the reference property.
         /// </summary>
         [XmlAttribute("ref", Namespace = Namespaces.niemStructs)]
-        public string OffenseRef { get; set; }
+        public override string Ref { get; set; }
 
         [XmlElement("OffenseUCRCode", Namespace = Namespaces.cjisNibrs, Order = 1)]
         public string UcrCode { get; set; }
