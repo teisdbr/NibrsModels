@@ -181,6 +181,7 @@ namespace NibrsModels.NibrsReport
 
         [JsonIgnore]
         [BsonIgnore]
+        [XmlIgnore]
         public string JsonString
         {
             get
