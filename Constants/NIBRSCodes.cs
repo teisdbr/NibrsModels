@@ -3333,6 +3333,16 @@ namespace NibrsModels.Constants
 		UNKNOWN
 	}
 
+    public enum OffenseAttemptedIndicator
+    {
+        [NibrsCode("true")]
+        [CodeDescription("true")]
+        TRUE,
+        [NibrsCode("false")]
+        [CodeDescription("false")]
+        False,
+    }
+
     /// <summary>
     /// A data type for Uniform Crime Reporting (UCR) offense codes
     /// </summary>
