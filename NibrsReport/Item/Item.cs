@@ -22,7 +22,7 @@ namespace NibrsModels.NibrsReport.Item
         public string Quantity { get; set; }
         
         [XmlIgnore]
-        public string ItemSequenceNumber => Regex.Match(Id, @"\d+").Value;
+        public string ItemSequenceNumber => Id != null ? Regex.Match(Id, @"\d+")?.Value : Id;
 
         public Item() { }
 
