@@ -139,7 +139,7 @@ namespace NibrsModels.NibrsReport
 
        
         [XmlIgnore] [BsonElement]
-        public string IncidentNumber => Reports[0]?.Incident?.ActivityId.Id;
+        public string IncidentNumber => Reports[0]?.Incident?.ActivityId?.Id;
 
         #endregion
 
