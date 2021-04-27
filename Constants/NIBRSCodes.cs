@@ -2716,42 +2716,14 @@ namespace NibrsModels.Constants
 		[CodeDescription("Other Circumstances")]
 		OTHER_CIRCUMSTANCES,
 
-		/// <summary>
-		/// Murder and Non-negligent Manslaughter
-		/// </summary>
-		[NibrsCode("09A")]
-		[CodeDescription("Murder and Non-negligent Manslaughter")]
-		MURDER_NONNEGLIGENT_MANSLAUGHTER,
-
-		/// <summary>
-		/// Negligent Manslaughter
-		/// </summary>
-		[NibrsCode("09B")]
-		[CodeDescription("Negligent Manslaughter")]
-		NEGLIGENT_MANSLAUGHTER,
-
-		/// <summary>
-		/// Justifiable Homicide
-		/// </summary>
-		[NibrsCode("09C")]
-		[CodeDescription("Justifiable Homicide")]
-		JUSTIFIABLE_HOMICIDE,
-
-		/// <summary>
+        /// <summary>
 		/// Unknown Circumstances
 		/// </summary>
 		[NibrsCode("10")]
 		[CodeDescription("Unknown Circumstances")]
 		UNKNOWN_CIRCUMSTANCES,
 
-		/// <summary>
-		/// Aggravated Assault
-		/// </summary>
-		[NibrsCode("13A")]
-		[CodeDescription("Aggravated Assault")]
-		AGGRAVATED_ASSAULT,
-
-		/// <summary>
+        /// <summary>
 		/// Criminal Killed by Private Citizen
 		/// </summary>
 		[NibrsCode("20")]
