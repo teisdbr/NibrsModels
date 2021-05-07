@@ -2791,7 +2791,12 @@ namespace NibrsModels.Constants
 		/// </summary>
 		[NibrsCode("D")]
 		[CodeDescription("Delete")]
-		D
+		D,
+        
+        [NibrsCode("R")]
+        [CodeDescription("Replace")]
+        R
+        
 	}
 
 	/// <summary>
