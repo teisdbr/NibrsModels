@@ -2785,19 +2785,19 @@ namespace NibrsModels.Constants
 		[NibrsCode("I")]
 		[CodeDescription("Incident Report")]
 		I,
+        
+        [NibrsCode("R")]
+        [CodeDescription("Replace")]
+        R,
 
 		/// <summary>
 		/// Delete
 		/// </summary>
 		[NibrsCode("D")]
 		[CodeDescription("Delete")]
-		D,
-        
-        [NibrsCode("R")]
-        [CodeDescription("Replace")]
-        R
-        
-	}
+		D
+
+    }
 
 	/// <summary>
 	 /// A data type for a code that identifies additional information on criminal activity of offenders in the offense.
