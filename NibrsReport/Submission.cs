@@ -48,11 +48,12 @@ namespace NibrsModels.NibrsReport
         }
 
 
-        public Submission(string runnumber, string environment)
+        public Submission(string runnumber, string environment, DateTime submissionDate)
         {
 
             Runnumber = runnumber;
             Environment = environment;
+            SubmissionDate = submissionDate;
         }
 
         public Submission(params Report[] reports)
@@ -91,6 +92,10 @@ namespace NibrsModels.NibrsReport
 
         [BsonElement]
         [XmlIgnore] public string Runnumber { get; set; }
+
+
+        [BsonElement]
+        [XmlIgnore] public DateTime SubmissionDate { get; set; }
 
         [BsonElement]
         [XmlIgnore] public string Environment { get; set; }
